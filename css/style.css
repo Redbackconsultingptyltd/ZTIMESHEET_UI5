@@ -1,0 +1,56 @@
+/* Enter your custom styles here */
+
+.sapUiCalItemType10>.sapUiCalItemText {
+    background-color: #ffccd0;
+    box-shadow: none;
+}
+
+.sapUiCalItemType10.sapUiCalItemNow>.sapUiCalItemText {
+    box-shadow: none;
+}
+
+.sapUiCalLegDayType10>.sapUiUnifiedLegendSquare>.sapUiUnifiedLegendSquareColor {
+    background-color: #ffccd0;
+}
+
+.noTitle .sapUiFormTitle {
+    display: none
+}
+
+.formHiddenTitle .sapUiFormContainerTitle .sapUiFormTitle {
+    display: none;
+}
+
+.sapUiCalItemType01>.sapUiCalItemText {
+    background-color: #f0ab00;
+    box-shadow: none;
+}
+
+.sapUiCalItemType03>.sapUiCalItemText {
+    background-color: #f00045;
+    box-shadow: none;
+}
+
+.sapUiCalItemType02>.sapUiCalItemText {
+    background-color: #ff6500;
+    box-shadow: none;
+}
+
+.sapUiCalItemType06>.sapUiCalItemText {
+    background-color: #008a3b;
+    box-shadow: none;
+}
+
+.sapUiCalItemType08>.sapUiCalItemText {
+    background-color: #00bfff;
+    box-shadow: none;
+}
+
+/*.sapUiCalItemType09>.sapUiCalItemText {
+    background-color: #00d65c;
+}*/
+
+
+/*.sapUiCalItemType10>.sapUiCalItemText {
+    background-color: #80196a;
+}*/

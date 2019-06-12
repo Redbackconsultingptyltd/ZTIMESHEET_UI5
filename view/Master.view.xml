@@ -1,0 +1,172 @@
+<mvc:View controllerName="ZHR_TIMESHEET_UI5.controller.Master" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	displayBlock="true" xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout" xmlns:sap.me="sap.me"
+	xmlns:u="sap.ui.unified">
+	<App>
+		<pages>
+			<Page id="timesheetpage" navButtonPress="onNavBack" showNavButton="true" title="{i18n>title}">
+				<content>
+					<l:VerticalLayout>
+						<u:CalendarDateInterval id="weeklyCalendar" days="14" width="1280px" select="handleDateChange" startDateChange="handleChangeRange"
+							singleSelection="true"></u:CalendarDateInterval>
+						<!--singleSelection="false"-->
+						<!--<l:HorizontalLayout>-->
+						<u:CalendarLegend id="idLegend" Expanded="true" class="s2LEGEND" columnWidth="200px"></u:CalendarLegend>
+						<!--</l:HorizontalLayout>-->
+					</l:VerticalLayout>
+						<f:SimpleForm editable="true" layout="ResponsiveGridLayout" title="{HeaderText}" id="idAttndHeader1">
+						<f:content>
+							<core:Title id="AttndTxt" text="{Attendtext}"/>
+							<Label id="FlxC" text=""/>
+							<CheckBox id="idFlxText" text="All Day Flex" selected="{Fxa}" select="handleFlxSelect"/>
+							<CheckBox id="idPtswap" text="Part Time Day Swap" selected="{Pts}" select="handlePtDaySwap"/>
+							<Label id="idHdrLine" text="" design="Bold"/>
+							<Text id="idStartHead" class='bold' text="Start"/>
+							<Text id="idSpace2" class='bold' text=""/>
+							<Text id="idEndHead" class='bold' text="End"/>
+							<Text id="idSpace3" class='bold' text=""/>
+							<Text id="idSpace4" class='bold' text=""/>
+							<Text id="idSpace5" class='bold' text=""/>
+							<Text id="idSpace6" class='bold' text=""/>
+							<Label id="idBlankln1" text="" design="Bold" width="50%"/>
+							<TimePicker id="idBeg1" type="Time" value="{path:'Bga', type:'sap.ui.model.type.String'}" valueFormat="HHmmss" displayFormat="HH:mm"
+								change="handleChange">
+								<layoutData>
+									<l:GridData span="XL2 L3 M4 S4"/>
+								</layoutData>
+							</TimePicker>
+							<TimePicker id="idEnd1" type="Time" value="{path:'Eda', type:'sap.ui.model.type.String'}" valueFormat="HHmmss" displayFormat="HH:mm"
+								change="handleChange">
+								<layoutData>
+									<l:GridData span="XL2 L3 M4 S4"/>
+								</layoutData>
+							</TimePicker>
+							<l:HorizontalLayout id="idHorz1">
+								<Button id="btnAdd1" icon="sap-icon://add" press="handleAddbreak1" tooltip="Add Row" />
+								<Button id="btnDel1" icon="sap-icon://less" press="handleDelbreak1" tooltip="Delete Row"/>
+							</l:HorizontalLayout>
+							<Label id="idBlankln2" text="" design="Bold"/>
+							<TimePicker id="idBeg2" type="Time" value="{path:'Bgb', type:'sap.ui.model.type.String'}" valueFormat="HHmmss" displayFormat="HH:mm"
+								change="handleChange">
+								<layoutData>
+									<l:GridData span="XL2 L3 M4 S4"/>
+								</layoutData>
+							</TimePicker>
+							<TimePicker id="idEnd2" type="Time" value="{path:'Edb', type:'sap.ui.model.type.String'}" valueFormat="HHmmss" displayFormat="HH:mm"
+								change="handleChange">
+								<layoutData>
+									<l:GridData span="XL2 L3 M4 S4"/>
+								</layoutData>
+							</TimePicker>
+							<l:HorizontalLayout id="idHorz2">
+								<Button id="btnAdd2" icon="sap-icon://add" press="handleAddbreak2" tooltip="Add Row"/>
+								<Button id="btnDel2" icon="sap-icon://less" press="handleDelbreak2" tooltip="Delete Row"/>
+							</l:HorizontalLayout>
+							<Label id="idBlankln3" text="" design="Bold"/>
+							<TimePicker id="idBeg3" type="Time" value="{path:'Bgc', type:'sap.ui.model.type.String'}" valueFormat="HHmmss" displayFormat="HH:mm"
+								change="handleChange">
+								<layoutData>
+									<l:GridData span="XL2 L3 M4 S4"/>
+								</layoutData>
+							</TimePicker>
+							<TimePicker id="idEnd3" type="Time" value="{path:'Edc', type:'sap.ui.model.type.String'}" valueFormat="HHmmss" displayFormat="HH:mm"
+								change="handleChange">
+								<layoutData>
+									<l:GridData span="XL2 L3 M4 S4"/>
+								</layoutData>
+							</TimePicker>
+							<l:HorizontalLayout id="idHorz3">
+								<Button id="btnAdd3" icon="sap-icon://add" press="handleAddbreak3" tooltip="Add Row"/>
+								<Button id="btnDel3" icon="sap-icon://less" press="handleDelbreak3" tooltip="Delete Row"/>
+							</l:HorizontalLayout>
+							<Label id="idBlankln4" text="" design="Bold"/>
+							<TimePicker id="idBeg4" type="Time" value="{path:'Bgd', type:'sap.ui.model.type.String'}" valueFormat="HHmmss" displayFormat="HH:mm"
+								change="handleChange">
+								<layoutData>
+									<l:GridData span="XL2 L3 M4 S4"/>
+								</layoutData>
+							</TimePicker>
+							<TimePicker id="idEnd4" type="Time" value="{path:'Edd', type:'sap.ui.model.type.String'}" valueFormat="HHmmss" displayFormat="HH:mm"
+								change="handleChange">
+								<layoutData>
+									<l:GridData span="XL2 L3 M4 S4"/>
+								</layoutData>
+							</TimePicker>
+							<l:HorizontalLayout id="idHorz4">
+								<Button id="btnDel4" icon="sap-icon://less" press="handleDelbreak4" tooltip="Delete Row"/>
+							</l:HorizontalLayout>
+							<Label id="idAbsl" text="Additional Absence Hours" design="Bold"/>
+							<TimePicker id="idAbs" valueFormat="HH:mm:ss" displayFormat="HH:mm" change="handleInputAbsHours" placeholder="Additional Hours">
+								<layoutData>
+									<l:GridData span="XL2 L3 M4 S4"/>
+								</layoutData>
+							</TimePicker>
+							<core:Title text="Flextime totals for Day"/>
+							<Label id="idLvel" text="Leave/Public Holiday Hours" design="Bold"/>
+							<Text id="idLve" width="30%" text="{Lve}"/>
+							<Label id="idStdl" text="Standard Hours" design="Bold"/>
+							<Text id="idStd" width="30%" text="{Std}"/>
+							<Label id="idTotl" text="Total Hours" design="Bold"/>
+							<Text id="idTot" width="30%" text="{Ttl}"/>
+							<Label id="idFlxball" text="Progressive Flex Balance" design="Bold"/>
+							<Text id="idFlxbal" width="30%" text="{Fbl}"/>
+							<Label id="idOthl" text="Travel TIL/Overtime Hours" design="Bold"/>
+							<Text id="idOth" width="30%" text="{Oth}"/>
+						</f:content>
+					</f:SimpleForm>
+					<f:SimpleForm id="idHeader2" editable="true" layout="ResponsiveGridLayout" title="Info" singleContainerFullSize="true"
+						class="formHiddenTitle">
+						<f:content>
+							<core:Title id="idBalTitle" text=""/>
+							<Label id="label2" text="Balance Adjustment" tooltip="Enter HH:mm Format "/>
+							<l:HorizontalLayout id="idHorz5">
+								<ToggleButton id="btnPos" icon="sap-icon://positive" tooltip="Positive Adjustment" enabled="true" press="onPressTb" width="50px"/>
+								<ToggleButton id="btnNeg" icon="sap-icon://negative" tooltip="Negative Adjustment" enabled="true" press="onPressTb" width="50px"/>
+							<MaskInput id="idBalAdj" mask="CC:MD" placeholderSymbol="_" placeholder="HH:mm" change="handleBalAdjHours">
+								<rules>
+									<MaskInputRule maskFormatSymbol="C" regex="[0-9]"/>
+									<MaskInputRule maskFormatSymbol="M" regex="[0-5]"/>
+									<MaskInputRule maskFormatSymbol="D" regex="[0-9]"/>
+								</rules>
+								<layoutData>
+									<l:GridData span="XL2 L2 M6 S12"/>
+								</layoutData>
+							</MaskInput>
+							</l:HorizontalLayout>
+							<Label id="label3a" text="Cash Out"/>
+							<Select id="idCashO" change="handleCashOutSelection">
+								<core:Item key="3" text=" "/>
+								<core:Item key="0" text="No Cash-out"/>
+								<core:Item key="1" text="Reduce balance to 30 Hours"/>
+								<core:Item key="2" text="Reduce balance to 37.5 Hours"/>
+							</Select>
+							<Text id="idCashOut" width="100%" text="{Flxco}">
+								<layoutData>
+									<l:GridData span="XL2 L2 M6 S12"/>
+								</layoutData>
+							</Text>
+							<core:Title id="idComTitle" text=""/>
+							<Label id="label4" text="Employee Comments"/>
+							<Input id="idEmpComm" value="{Resn1}" placeholder="Enter Max 50 Characters" maxLength="50" change="handleEmpComments"/>
+							<Label id="label5" text="Supervisor"/>
+							<Input id="idSuper" type="Text" showSuggestion="true" showValueHelp="true" valueHelpOnly="true" valueHelpRequest="handleValueHelpNew"/>
+							<Label id="label6" text="Supervisor Comments"/>
+							<Input id="idSupComm" value="{Resn2}"/>
+						</f:content>
+					</f:SimpleForm>
+					<core:ExtensionPoint name="extDetail"/>
+				</content>
+				<footer id="detailFooter">
+					<Toolbar id="detailToolbar">
+						<content>
+							<ToolbarSpacer id="toolbarSpacer"/>
+							<Button text="Submit" width="100px" id="idSubmit" type="Accept" press="handleSubmitDetails"/>
+							<Button text="Save" width="100px" id="idSave" type="Accept" press="handleSaveDetails"/>
+							<Button text="Overview" width="100px" id="idPdf" type="Accept" press="handlePdfDetails"/>
+							<Button text="Period" width="100px" id="idPeriod" type="Accept" press="handlePeriodDetails"/>
+						</content>
+					</Toolbar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

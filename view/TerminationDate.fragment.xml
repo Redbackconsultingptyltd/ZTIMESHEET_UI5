@@ -1,0 +1,35 @@
+<core:FragmentDefinition xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:layout="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form" xmlns:l="sap.ui.layout">
+	<Dialog title="Information Required" class="sapUiSizeCompact" contentWidth="500px" contentHeight="300px" draggable="true" resizable="true"
+		select="true">
+		<VBox class="sapUiSmallMargin">
+			<f:SimpleForm id="idFheader" editable="true" layout="ResponsiveGridLayout" title="" singleContainerFullSize="false" labelSpanXL="3"
+				labelSpanL="3" labelSpanM="3" labelSpanS="6" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0"
+				columnsXL="1" columnsL="1" columnsM="1">
+				<f:content>
+					<Text id="TX1"
+						text="You have not completed data for all work days.If you are terminating from the Department during this settlement period please click on Yes, otherwise please click on Cancel.."
+						design="bold"/>
+					<Label id="LB1" text="Are you leaving this Deparment" labelFor="idTb1F"/>
+					<ToggleButton id="idTb1F" text="Yes" press="onPress">
+						<layoutData>
+							<l:GridData span="XL1 L4 M4 S2"/>
+						</layoutData>
+					</ToggleButton>
+					<Label id="idLb2F" text="Termination Date" visible="true" labelFor="idDp1F"/>
+					<DatePicker id="idDp1F" valueFormat="yyyy-MM-dd" displayFormat="dd.MM.yyyy" placeholder="Please Enter Termination Date" change="handleChangeTerminationDate" class="sapUiSmallMarginBottom">
+						<layoutData>
+							<l:GridData span="XL1 L4 M4 S6"/>
+						</layoutData>
+					</DatePicker>
+				</f:content>
+			</f:SimpleForm>
+		</VBox>
+		<beginButton>
+			<Button id="idBtn1f" text="Save and Submit" enabled="false" emphasized="false" press="onDialogSaveButton"/>
+		</beginButton>
+		<endButton>
+			<Button id="idBtn2f" text="Cancel" enabled="true" press="onDialogCloseButton"/>
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>
